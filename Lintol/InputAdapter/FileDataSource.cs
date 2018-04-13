@@ -12,7 +12,6 @@ namespace Lintol.InputAdapter
         public IList<string> CommonFirstNames()
             => ReadAndCleanData("CommonFirstNames.csv");
 
-
         public IList<string> CommonSurnames()
             => ReadAndCleanData("CommonSurnames.csv");
 
@@ -30,6 +29,20 @@ namespace Lintol.InputAdapter
 
         public IList<string> DictionaryWords() 
             => ReadAndCleanData("words_alpha.txt");
+
+        public static void CleanDictionary()
+        {
+            var dictionary = ReadAndCleanData("words_alpha.txt");
+            var names = ReadAndCleanData("CommonFirstNames.csv")
+                .Concat(ReadAndCleanData("CommonSurnames.csv"))
+                .ToHashSet();
+
+            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "data\\", "words_alpha.txt");
+            var newDictionary = dictionary
+                .Where(word => !names.Contains(word))
+                .ToArray();
+            File.WriteAllLines(path, newDictionary);
+        }
 
         public static IList<string> ReadAndCleanData(string filename)
         {
