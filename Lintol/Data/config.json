@@ -9,5 +9,5 @@
 		"Address"
 	],
 	"includeInformationInOutput": false,
-	"useVerifiers":  true 
+	"useVerifiers":  false 
 }

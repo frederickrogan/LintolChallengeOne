@@ -8,15 +8,17 @@ namespace Lintol.InputAdapter
 {
     public class InputParser
     {
-        public static IEnumerable<Cell> ParseInput(string input) 
+        public static IList<IList<Cell>> ParseInput(string input)
             => input
-            .Split('\n')
-            .SelectMany(ParseRow);
+                .Split('\n')
+                .Select(ParseRow)
+                .ToList();
 
-        public static IEnumerable<Cell> ParseRow(string rowContents, int rowIndex) 
+        public static IList<Cell> ParseRow(string rowContents, int rowIndex) 
             => rowContents
             .Split(',')
-            .Select((cellContents, columnIndex) => CreateCell(rowIndex, columnIndex, cellContents));
+            .Select((cellContents, columnIndex) => CreateCell(rowIndex, columnIndex, cellContents))
+            .ToList();
 
         public static Cell CreateCell(int row, int column, string cellContents)
         {

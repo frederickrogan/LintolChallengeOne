@@ -16,7 +16,6 @@ namespace Lintol
     {
         static void Main(string[] args)
         {
-            
             var input = "what who where david newman some more data lala, lalala";
             input += ",https://www.facebook.com/conall.newman";
             input += ",https://www.google.com";
@@ -66,9 +65,8 @@ namespace Lintol
             var results = lintol.Process(input);
 
             var output = RootMapper.Map(results, configuration);
-
-            var groups = results.Information.GroupBy(i => i.Type).ToList();
-
+            
+            OutputWriter.WriteToFile(output);
         }
 
         public static IDataSource GetDataSource(bool useStub = false) 

@@ -23,12 +23,12 @@ namespace Lintol
             this.verifiers = verifiers;
         }
 
-        public SearchResults Process(IList<Cell> input)
+        public SearchResults Process(IList<IList<Cell>> input)
         {
             var cummulativeComponents = new List<Component>();
             var cummulativeInformation = new List<Information>();
 
-            foreach (var cell in input)
+            foreach (var cell in input.SelectMany(row => row))
             {
                 var components = detectors.SelectMany(detector => FindComponents(detector, cell)).ToList();
                 var information = inspectors.SelectMany(inspector => inspector.Inspect(components));
