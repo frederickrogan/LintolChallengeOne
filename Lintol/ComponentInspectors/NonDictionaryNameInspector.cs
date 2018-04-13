@@ -6,9 +6,9 @@ using Lintol.Domain;
 
 namespace Lintol.ComponentInspectors
 {
-    class NonDictionaryNameInspector : IInspectComponents
+    public class NonDictionaryNameInspector : IInspectComponents
     {
-        private const Category Type = Category.CommonFullName;
+        private const Category Type = Category.PossibleFullName;
 
         public IEnumerable<Information> Inspect(IList<Component> components)
         {

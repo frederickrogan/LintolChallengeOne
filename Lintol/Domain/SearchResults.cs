@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using Lintol.Domain;
 
-namespace Lintol
+namespace Lintol.Domain
 {
     public class SearchResults
     {
