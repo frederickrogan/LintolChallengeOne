@@ -7,7 +7,7 @@ namespace Lintol.ComponentInspectors
     public class FullNameInspector : IInspectComponents
     {
 
-        private const Category Type = Category.FullName;
+        private const Category Type = Category.CommonFullName;
 
         public IEnumerable<Information> Inspect(IList<Component> components)
         {

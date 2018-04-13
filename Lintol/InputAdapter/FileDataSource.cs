@@ -28,6 +28,9 @@ namespace Lintol.InputAdapter
         public IList<string> Towns()
             => ReadAndCleanData("CityTownBurgh.csv");
 
+        public IList<string> DictionaryWords() 
+            => ReadAndCleanData("words_alpha.txt");
+
         public static IList<string> ReadAndCleanData(string filename)
         {
             var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "data\\", filename);

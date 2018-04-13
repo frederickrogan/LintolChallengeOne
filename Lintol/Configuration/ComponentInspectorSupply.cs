@@ -11,7 +11,8 @@ namespace Lintol.Configuration
         private static readonly IReadOnlyDictionary<Category, ICategoryModule> Supply =
             new Dictionary<Category, ICategoryModule>
             {
-                {Category.FullName, new FullNameModule() },
+                {Category.CommonFullName, new FullNameModule() },
+                {Category.PossibleFullName, new NonDictionaryNameModule() },
                 {Category.SocialMediaLink, new SocialMediaModule() },
                 {Category.EmailAddress, new EmailModule() },
                 {Category.DateOfBirth, new DateOfBirthModule() },

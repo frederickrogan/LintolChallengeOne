@@ -5,7 +5,7 @@ using Lintol.Domain;
 
 namespace Lintol.ComponentDectors
 {
-    public class InSetDetector : IDetectComponents
+    public class NotInSetDetector : IDetectComponents
     {
         private readonly ISet<string> lookupList;
 
@@ -13,14 +13,14 @@ namespace Lintol.ComponentDectors
 
         private readonly Func<string, string> preComparisonModifier;
 
-        public InSetDetector(IList<string> lookupList, ComponentType type)
+        public NotInSetDetector(IList<string> lookupList, ComponentType type)
         {
             this.lookupList = lookupList.ToHashSet();
             this.type = type;
             preComparisonModifier = unmodified => unmodified;
         }
 
-        public InSetDetector(IList<string> lookupList, ComponentType type, Func<string, string> preComparisonModifier)
+        public NotInSetDetector(IList<string> lookupList, ComponentType type, Func<string, string> preComparisonModifier)
         {
             this.type = type;
             this.preComparisonModifier = preComparisonModifier;
@@ -29,7 +29,7 @@ namespace Lintol.ComponentDectors
 
         public Component Detect(Word word)
         {
-            return lookupList.Contains(preComparisonModifier(word.Content))
+            return !lookupList.Contains(preComparisonModifier(word.Content))
                 ? new Component(word, type)
                 : null;
         }

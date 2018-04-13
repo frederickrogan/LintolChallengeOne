@@ -37,7 +37,7 @@
     <None Update="Data\StreetSuffix.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Data\CommonFirstNames - Copy %284%29.csv">
+    <None Update="Data\words_alpha.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Data\CityTownBurgh.csv">

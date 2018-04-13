@@ -32,7 +32,7 @@ namespace Lintol.Configuration
                 {ComponentType.PostCodeFull, () => new RegexDetector(RegexConstants.FullPostCode, ComponentType.PostCodeFull)},
                 {ComponentType.FlatWord, () => new WordDetector("flat", ComponentType.FlatWord)},
                 {ComponentType.Number, () => new NumberDetector()},
-
+                {ComponentType.NonDictionaryWord, () => new NotInSetDetector(dataSource.DictionaryWords(), ComponentType.NonDictionaryWord, LowerCaseComparison)},
             };
         }
 

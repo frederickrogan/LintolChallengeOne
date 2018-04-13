@@ -35,5 +35,10 @@ namespace Lintol.InputAdapter
         {
             return new List<string> { "bangor" };
         }
+
+        public IList<string> DictionaryWords()
+        {
+            return new List<string> { "word" };
+        }
     }
 }

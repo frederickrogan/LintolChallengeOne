@@ -31,7 +31,7 @@ namespace Lintol.InputAdapter
         public static Configuration ParseSettingsStub(string settings) =>
             new Configuration(new List<Category>
             {
-                Category.FullName,
+                Category.CommonFullName,
                 Category.SocialMediaLink,
                 Category.EmailAddress,
                 Category.DateOfBirth,

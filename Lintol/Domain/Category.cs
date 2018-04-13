@@ -2,13 +2,13 @@
 {
     public enum Category
     {
-        FullName,
+        CommonFullName,
+        PossibleFullName,
         SocialMediaLink,
         EmailAddress,
         DateOfBirth,
         Address,
         ValidIpAddress,
-
 
     }
 }

@@ -1,6 +1,7 @@
 ﻿{
 	"Categories": [
-		"FullName",
+		"CommonFullName",
+		"PossibleFullName",
 		"SocialMediaLink",
 		"EmailAddress",
 		"DateOfBirth",

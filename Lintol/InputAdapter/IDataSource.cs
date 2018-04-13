@@ -10,6 +10,7 @@ namespace Lintol.InputAdapter
         IList<string> Countries();
         IList<string> StreetSuffixes();
         IList<string> Towns();
+        IList<string> DictionaryWords();
     }
     
 }
