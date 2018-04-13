@@ -1,4 +1,4 @@
-﻿Lintol challenge PII
+﻿# Thoughts while developing
 
 Detecting personal identifiable information from datasets
 
