@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Lintol.CategoryVerifiers;
 using Lintol.ComponentDectors;
 using Lintol.ComponentInspectors;
 using Lintol.Configuration;
@@ -58,7 +59,9 @@ namespace Lintol
                 .Select(componentDetectorSupply.GetDetectorFor)
                 .ToList();
 
-            var lintol = new LintolProcess(detectors, inspectors);
+            var verifiers = InformationVerifierSupply.Verifiers(configuration.UseVerifiers);
+
+            var lintol = new LintolProcess(detectors, inspectors, verifiers);
 
             var results = lintol.Process(input);
 

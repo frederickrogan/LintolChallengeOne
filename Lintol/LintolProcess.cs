@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Lintol.ComponentDectors;
 using Lintol.ComponentInspectors;
@@ -10,11 +11,16 @@ namespace Lintol
     {
         private readonly IList<IDetectComponents> detectors;
         private readonly IList<IInspectComponents> inspectors;
+        private readonly IEnumerable<Func<IEnumerable<Information>, IEnumerable<Information>>> verifiers;
 
-        public LintolProcess(IList<IDetectComponents> detectors, IList<IInspectComponents> inspectors)
+        public LintolProcess(
+            IList<IDetectComponents> detectors, 
+            IList<IInspectComponents> inspectors, 
+            IEnumerable<Func<IEnumerable<Information>, IEnumerable<Information>>> verifiers)
         {
             this.detectors = detectors;
             this.inspectors = inspectors;
+            this.verifiers = verifiers;
         }
 
         public SearchResults Process(IList<Cell> input)
@@ -30,6 +36,9 @@ namespace Lintol
                 cummulativeComponents.AddRange(components);
                 cummulativeInformation.AddRange(information);
             }
+
+            var verifiedInformation = verifiers.SelectMany(func => func(cummulativeInformation));
+            cummulativeInformation.AddRange(verifiedInformation);
 
             return new SearchResults(input, cummulativeComponents, cummulativeInformation);
         }

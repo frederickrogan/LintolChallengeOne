@@ -4,6 +4,7 @@
     {
         CommonFullName,
         PossibleFullName,
+        ConfirmedFullName,
         SocialMediaLink,
         EmailAddress,
         DateOfBirth,

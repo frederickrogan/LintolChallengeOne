@@ -1,5 +1,5 @@
 ﻿{
-	"Categories": [
+	"categories": [
 		"CommonFullName",
 		"PossibleFullName",
 		"SocialMediaLink",
@@ -8,5 +8,6 @@
 		"ValidIpAddress",
 		"Address"
 	],
-	"includeInformationInOutput": false
+	"includeInformationInOutput": false,
+	"useVerifiers":  true 
 }
